@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Peer Prep Academy — Pitch Deck</title>
+<style>
+@font-face { font-family: "Barlow"; font-weight: 400; src: url(fonts/Barlow-Regular.ttf); }
+@font-face { font-family: "Barlow"; font-weight: 500; src: url(fonts/Barlow-Medium.ttf); }
+@font-face { font-family: "Barlow"; font-weight: 600; src: url(fonts/Barlow-SemiBold.ttf); }
+@font-face { font-family: "Barlow"; font-weight: 700; src: url(fonts/Barlow-Bold.ttf); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 500; src: url(fonts/BarlowCondensed-Medium.ttf); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 600; src: url(fonts/BarlowCondensed-SemiBold.ttf); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; src: url(fonts/BarlowCondensed-Bold.ttf); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; src: url(fonts/BarlowCondensed-ExtraBold.ttf); }
+
+:root {
+  --bg: #e4ecf3;
+  --ink: #1b2a3a;
+  --ink-2: #3f5268;
+  --mute: #6b7f94;
+  --steel: #5980a6;
+  --violet: #7259b8;
+  --teal: #2f9a96;
+  --line: rgba(89,128,166,.55);
+  --line-soft: rgba(89,128,166,.16);
+  --grad: linear-gradient(90deg, var(--violet) 0%, var(--steel) 52%, var(--teal) 100%);
+}
+@page { size: 1600px 900px; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); }
+body { font-family: "Barlow", sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.slide {
+  width: 1600px; height: 900px; position: relative; overflow: hidden;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
+  page-break-after: always; break-after: page;
+}
+.slide:last-child { page-break-after: auto; break-after: auto; }
+
+/* outer frame */
+.frame { position: absolute; inset: 40px; border: 1px solid var(--line); background: var(--bg); display: flex; flex-direction: column; }
+
+/* registration marks, injected by script into every .reg element */
+.reg:not(.frame) { position: relative; }
+.plus { position: absolute; width: 15px; height: 15px; pointer-events: none; }
+.plus::before, .plus::after { content: ""; position: absolute; background: var(--steel); }
+.plus::before { left: 7px; top: 0; width: 1px; height: 15px; }
+.plus::after  { top: 7px; left: 0; height: 1px; width: 15px; }
+.plus.tl { top: -8px; left: -8px; } .plus.tr { top: -8px; right: -8px; }
+.plus.bl { bottom: -8px; left: -8px; } .plus.br { bottom: -8px; right: -8px; }
+
+/* header band */
+.band { height: 60px; background: var(--grad); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; flex: none; }
+.band .sec { font-family: "Barlow Condensed"; font-weight: 600; font-size: 21px; letter-spacing: .22em; text-transform: uppercase; }
+.band .sec b { font-weight: 800; margin-right: 14px; opacity: .75; }
+.band .mini { display: flex; align-items: center; gap: 10px; font-family: "Barlow Condensed"; font-weight: 700; font-size: 18px; letter-spacing: .14em; }
+
+.body { flex: 1; padding: 40px 56px 0; display: flex; flex-direction: column; min-height: 0; }
+.foot { height: 44px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; border-top: 1px solid var(--line); font-family: "Barlow Condensed"; font-weight: 600; font-size: 15px; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+
+h1, h2, h3, .num { font-family: "Barlow Condensed"; }
+h2 { font-weight: 800; font-size: 60px; line-height: .98; letter-spacing: -.005em; text-transform: uppercase; }
+h2 em { font-style: normal; color: var(--steel); }
+.kicker { font-family: "Barlow Condensed"; font-weight: 700; font-size: 17px; letter-spacing: .24em; text-transform: uppercase; color: var(--steel); }
+.box { border: 1px solid var(--line); background: rgba(255,255,255,.38); }
+.label { font-family: "Barlow Condensed"; font-weight: 700; font-size: 16px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); }
+.num { font-weight: 800; line-height: .9; letter-spacing: -.01em; }
+.v { color: var(--violet); } .t { color: var(--teal); } .s { color: var(--steel); }
+p { font-size: 20px; line-height: 1.35; color: var(--ink-2); }
+
+/* ---------- title ---------- */
+.title .frame { justify-content: space-between; }
+.title .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 96px; }
+.title .logo-lg { display: flex; align-items: center; gap: 28px; margin-bottom: 52px; }
+.title .wm1 { font-family: "Barlow Condensed"; font-weight: 800; font-size: 60px; line-height: .9; letter-spacing: .02em; }
+.title .wm2 { font-family: "Barlow Condensed"; font-weight: 600; font-size: 22px; letter-spacing: .62em; color: var(--steel); margin-top: 8px; }
+.title h1 { font-weight: 800; font-size: 132px; line-height: .9; text-transform: uppercase; letter-spacing: -.01em; }
+.title h1 span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.title .tag { font-size: 34px; line-height: 1.25; color: var(--ink-2); margin-top: 30px; max-width: 1080px; font-weight: 500; }
+.title .meta { display: flex; border-top: 1px solid var(--line); flex: none; }
+.title .meta > div { flex: 1; padding: 22px 32px; border-right: 1px solid var(--line); }
+.title .meta > div:last-child { border-right: 0; }
+.title .meta .label { margin-bottom: 6px; }
+.title .meta .val { font-family: "Barlow Condensed"; font-weight: 700; font-size: 30px; letter-spacing: .02em; }
+.title .band-thick { height: 14px; background: var(--grad); flex: none; }
+
+/* ---------- problem ---------- */
+.prob-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 44px; }
+.prob-grid .box { padding: 30px 28px 32px; height: 340px; display: flex; flex-direction: column; }
+.prob-grid .num { font-size: 84px; margin: 18px 0 22px; }
+.prob-grid h3 { font-weight: 700; font-size: 26px; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 10px; }
+.prob-grid p { font-size: 19px; }
+.bottomline { margin-top: auto; margin-bottom: 36px; display: flex; align-items: center; gap: 24px; padding: 22px 28px; border: 1px solid var(--line); border-left: 6px solid var(--violet); background: rgba(255,255,255,.38); }
+.bottomline .txt { font-family: "Barlow Condensed"; font-weight: 700; font-size: 32px; text-transform: uppercase; letter-spacing: .01em; }
+
+/* ---------- solution ---------- */
+.sol { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 30px; flex: 1; min-height: 0; margin-bottom: 28px; }
+.sol .col { display: flex; flex-direction: column; gap: 20px; min-height: 0; }
+.sol .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.sol .stats .box { padding: 18px 20px; }
+.sol .stats .num { font-size: 70px; margin-bottom: 8px; }
+.sol .stats p { font-size: 16.5px; line-height: 1.25; }
+.sol .live { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; }
+.sol .live .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 1; grid-auto-rows: 1fr; }
+.sol .live .chip { display: flex; align-items: center; font-size: 19px; padding: 0 16px; }
+.sol .live .chip::before { margin-right: 12px; vertical-align: 0; flex: none; }
+.sol .live .label { color: var(--teal); margin-bottom: 14px; display: flex; justify-content: space-between; }
+.sol .live .label span { color: var(--mute); letter-spacing: .08em; text-transform: none; font-family: "Barlow"; font-weight: 600; font-size: 15px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { border: 1px solid var(--line); padding: 7px 13px; font-size: 16.5px; font-weight: 600; color: var(--ink); background: var(--bg); }
+.chip::before { content: ""; display: inline-block; width: 7px; height: 7px; background: var(--teal); margin-right: 9px; vertical-align: 2px; }
+.road { padding: 20px 24px; flex: 1; display: flex; flex-direction: column; }
+.road .label { color: var(--violet); margin-bottom: 6px; }
+.road ol { list-style: none; display: flex; flex-direction: column; flex: 1; justify-content: space-around; }
+.road li { display: flex; gap: 18px; align-items: baseline; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.road li:last-child { border-bottom: 0; }
+.road li .n { font-family: "Barlow Condensed"; font-weight: 800; font-size: 30px; color: var(--violet); width: 38px; flex: none; }
+.road li h3 { font-weight: 700; font-size: 25px; text-transform: uppercase; letter-spacing: .01em; line-height: 1; }
+.road li p { font-size: 17px; margin-top: 3px; }
+.thesis { background: var(--grad); color: #fff; padding: 18px 24px; display: flex; gap: 24px; align-items: center; }
+.thesis .k { font-family: "Barlow Condensed"; font-weight: 700; font-size: 16px; letter-spacing: .24em; opacity: .85; }
+.thesis .t1 { font-family: "Barlow Condensed"; font-weight: 700; font-size: 27px; text-transform: uppercase; line-height: 1.05; color: #fff; }
+
+/* ---------- market ---------- */
+.mkt { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; margin-top: 30px; }
+.mkt .left { display: flex; flex-direction: column; gap: 20px; }
+.mkt .left .bigrow { flex: 1; align-content: center; }
+.bigrow { padding: 22px 26px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 16px; }
+.bigrow .num { font-size: 92px; }
+.bigrow .num small { font-size: 52px; color: var(--mute); margin: 0 14px; font-weight: 600; vertical-align: 10px; }
+.bigrow .num .to { font-size: 92px; }
+.bigrow .cagr { text-align: right; }
+.bigrow .cagr .num { font-size: 48px; }
+.bigrow p { font-size: 18px; margin-top: 8px; grid-column: 1 / -1; }
+.mkt .right { display: flex; flex-direction: column; gap: 20px; }
+.mini3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.mini3 .box { padding: 16px 16px; }
+.mini3 .num { font-size: 48px; margin-bottom: 6px; }
+.mini3 p { font-size: 15.5px; line-height: 1.25; }
+.beach { padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+.beach .step { font-family: "Barlow Condensed"; font-weight: 800; font-size: 32px; text-transform: uppercase; }
+.beach .arrow { flex: 1; height: 1px; background: var(--steel); position: relative; }
+.beach .arrow::after { content: ""; position: absolute; right: 0; top: -5px; border-left: 10px solid var(--steel); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.why { border: 1px solid var(--violet); border-left: 6px solid var(--violet); background: rgba(114,89,184,.07); padding: 18px 22px; flex: 1; }
+.why .label { color: var(--violet); margin-bottom: 8px; }
+.why q { display: block; font-family: "Barlow Condensed"; font-weight: 700; font-size: 29px; line-height: 1.08; text-transform: uppercase; quotes: "\201C" "\201D"; color: var(--ink); }
+.why .lead { font-size: 17px; font-weight: 600; color: var(--ink-2); margin-bottom: 4px; }
+.why p { font-size: 17px; margin-top: 10px; }
+.src { margin-top: auto; margin-bottom: 16px; font-size: 12.5px; line-height: 1.4; color: var(--mute); }
+.src b { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 11.5px; margin-right: 6px; }
+
+/* ---------- business model ---------- */
+.funnel { display: grid; grid-template-columns: 0.9fr 1.25fr 1.35fr; gap: 0; margin-top: 34px; }
+.funnel .box { padding: 24px 28px; position: relative; height: 236px; display: flex; flex-direction: column; }
+.funnel .box + .box { border-left: 0; }
+.funnel .num { font-size: 92px; margin: 10px 0 10px; }
+.funnel .num small { font-size: 30px; color: var(--mute); font-weight: 700; }
+.funnel p { font-size: 18px; }
+.funnel .box.hl { background: var(--grad); color: #fff; border-color: transparent; }
+.funnel .box.hl .label, .funnel .box.hl p { color: rgba(255,255,255,.88); }
+.funnel .step-arrow { position: absolute; right: -17px; top: 50%; width: 34px; height: 34px; margin-top: -17px; font-size: 26px; background: var(--bg); border: 1px solid var(--line); z-index: 2; display: flex; align-items: center; justify-content: center; font-family: "Barlow Condensed"; font-weight: 800; color: var(--steel); }
+.unit { margin-top: 24px; padding: 14px 22px; display: flex; align-items: center; gap: 18px; border: 1px solid var(--line); border-left: 6px solid var(--teal); background: rgba(255,255,255,.38); }
+.unit .txt { font-family: "Barlow Condensed"; font-weight: 700; font-size: 25px; text-transform: uppercase; }
+.unit .txt span { color: var(--teal); }
+.bm2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 24px; }
+.bm2 .box { padding: 20px 24px; }
+.bm2 .label { margin-bottom: 10px; }
+.bm2 ul { list-style: none; }
+.bm2 li { display: flex; gap: 14px; align-items: baseline; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 18px; color: var(--ink-2); line-height: 1.25; }
+.bm2 li:last-child { border-bottom: 0; }
+.bm2 li .n { font-family: "Barlow Condensed"; font-weight: 800; font-size: 22px; width: 26px; flex: none; }
+.bm2 li b { color: var(--ink); font-weight: 700; }
+
+/* ---------- team ---------- */
+.team { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; margin-top: 36px; }
+.founder { padding: 28px 30px; display: grid; grid-template-columns: auto 1fr; gap: 26px; }
+.mono { width: 128px; height: 128px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-family: "Barlow Condensed"; font-weight: 800; font-size: 46px; color: #fff; background: var(--grad); }
+.founder h3 { font-weight: 800; font-size: 46px; text-transform: uppercase; line-height: 1; }
+.founder .role { font-family: "Barlow Condensed"; font-weight: 600; font-size: 19px; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); margin: 6px 0 14px; }
+.creds { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.creds .chip::before { background: var(--violet); }
+.founder ul { list-style: none; }
+.founder li { font-size: 20px; color: var(--ink-2); padding: 3px 0 3px 18px; position: relative; line-height: 1.3; }
+.founder li::before { content: ""; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--steel); }
+.founder li b { color: var(--ink); }
+.side { display: flex; flex-direction: column; gap: 20px; }
+.cof { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cof .box { padding: 22px 22px; }
+.cof h3 { font-weight: 800; font-size: 38px; text-transform: uppercase; line-height: 1; }
+.cof .role { font-family: "Barlow Condensed"; font-weight: 600; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); margin-top: 6px; }
+.tutors { padding: 18px 22px; display: flex; align-items: center; gap: 20px; flex: 1; }
+.tutors .num { font-size: 120px; }
+.tutors p { font-size: 22px; }
+.traction { margin-top: 28px; display: grid; grid-template-columns: auto repeat(4, 1fr); border: 1px solid var(--line); background: rgba(255,255,255,.38); }
+.traction > div { padding: 18px 20px; border-left: 1px solid var(--line); }
+.traction > div:first-child { border-left: 0; background: var(--teal); color: #fff; display: flex; align-items: center; font-family: "Barlow Condensed"; font-weight: 700; font-size: 17px; letter-spacing: .2em; text-transform: uppercase; width: 170px; line-height: 1.1; }
+.traction .h { font-family: "Barlow Condensed"; font-weight: 800; font-size: 26px; text-transform: uppercase; line-height: 1; }
+.traction .d { font-size: 15.5px; color: var(--ink-2); margin-top: 4px; }
+.goals { margin-top: 20px; display: grid; grid-template-columns: auto repeat(3, 1fr); border: 1px solid var(--violet); background: rgba(114,89,184,.07); }
+.goals > div { padding: 18px 20px; border-left: 1px solid rgba(114,89,184,.4); }
+.goals > div:first-child { border-left: 0; background: var(--violet); color: #fff; font-family: "Barlow Condensed"; font-weight: 700; font-size: 17px; letter-spacing: .2em; text-transform: uppercase; width: 170px; display: flex; align-items: center; line-height: 1.1; }
+.goals .when { font-family: "Barlow Condensed"; font-weight: 700; font-size: 16px; letter-spacing: .18em; color: var(--violet); text-transform: uppercase; }
+.goals .what { font-family: "Barlow Condensed"; font-weight: 800; font-size: 26px; text-transform: uppercase; line-height: 1.05; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<!-- reusable logo -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#7259b8"/><stop offset=".5" stop-color="#5980a6"/><stop offset="1" stop-color="#2f9a96"/>
+    </linearGradient>
+    <symbol id="logo" viewBox="0 0 100 100">
+      <rect x="14" y="14" width="72" height="72" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <!-- crosshair corners -->
+      <g stroke="currentColor" stroke-width="2.5">
+        <line x1="2" y1="14" x2="26" y2="14"/><line x1="14" y1="2" x2="14" y2="26"/>
+        <line x1="74" y1="14" x2="98" y2="14"/><line x1="86" y1="2" x2="86" y2="26"/>
+        <line x1="2" y1="86" x2="26" y2="86"/><line x1="14" y1="74" x2="14" y2="98"/>
+        <line x1="74" y1="86" x2="98" y2="86"/><line x1="86" y1="74" x2="86" y2="98"/>
+      </g>
+      <rect x="27" y="56" width="12" height="20" fill="var(--b1, currentColor)"/>
+      <rect x="44" y="43" width="12" height="33" fill="var(--b2, currentColor)"/>
+      <rect x="61" y="28" width="12" height="48" fill="var(--b3, currentColor)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ TITLE ============ -->
+<section class="slide title">
+  <div class="frame reg">
+    <div class="band-thick"></div>
+    <div class="hero">
+      <div class="logo-lg">
+        <svg width="112" height="112" style="color:var(--ink);--b1:#7259b8;--b2:#5980a6;--b3:#2f9a96"><use href="#logo"/></svg>
+        <div>
+          <div class="wm1">PEER PREP</div>
+          <div class="wm2">ACADEMY</div>
+        </div>
+      </div>
+      <h1>Peer Prep <span>Academy</span></h1>
+      <div class="tag">AI-native tutoring, taught by students who just aced the test.</div>
+    </div>
+    <div class="meta">
+      <div><div class="label">Founder</div><div class="val">Ryan Chow</div></div>
+      <div><div class="label">School</div><div class="val">UC San Diego</div></div>
+      <div><div class="label">Web</div><div class="val">peerprepacademy.com</div></div>
+      <div><div class="label">Application</div><div class="val">Basement LaunchPad</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1. PROBLEM ============ -->
+<section class="slide">
+  <div class="frame reg">
+    <div class="band"><div class="sec"><b>01</b>Problem</div><div class="mini"><svg width="26" height="26" style="color:#fff"><use href="#logo"/></svg>PEER PREP ACADEMY</div></div>
+    <div class="body">
+      <h2>Families face a bad tradeoff:<br><em>pay a lot, or gamble.</em></h2>
+      <div class="prob-grid">
+        <div class="box reg">
+          <div class="label">Premium prep</div>
+          <div class="num v">$150+<span style="font-size:40px">/hr</span></div>
+          <h3>Expensive + stale</h3>
+          <p>Tutors who took an older version of the test, years ago.</p>
+        </div>
+        <div class="box reg">
+          <div class="label">Cheap marketplaces</div>
+          <div class="num s">No QC</div>
+          <h3>A coin flip</h3>
+          <p>No quality control on who shows up to teach.</p>
+        </div>
+        <div class="box reg">
+          <div class="label">Parents</div>
+          <div class="num s">Opaque</div>
+          <h3>Paying blind</h3>
+          <p>Almost no visibility into what is actually improving.</p>
+        </div>
+        <div class="box reg">
+          <div class="label">Tutors</div>
+          <div class="num t">1 : few</div>
+          <h3>Doesn't scale</h3>
+          <p>One tutor can only personalize for so many students.</p>
+        </div>
+      </div>
+      <div class="bottomline reg">
+        <div class="kicker" style="color:var(--violet)">Net</div>
+        <div class="txt">High price, low transparency, and personalization that stops at the tutor's calendar.</div>
+      </div>
+    </div>
+    <div class="foot"><span>Peer Prep Academy</span><span>UCSD Basement LaunchPad</span><span>01 / 05</span></div>
+  </div>
+</section>
+
+<!-- ============ 2. SOLUTION ============ -->
+<section class="slide">
+  <div class="frame reg">
+    <div class="band"><div class="sec"><b>02</b>Solution</div><div class="mini"><svg width="26" height="26" style="color:#fff"><use href="#logo"/></svg>PEER PREP ACADEMY</div></div>
+    <div class="body">
+      <h2>Near-peer tutors <em>+ our own AI-native platform.</em></h2>
+      <div class="sol">
+        <div class="col">
+          <div class="stats">
+            <div class="box reg"><div class="num v">1500+</div><p>SAT score of every tutor, on the current digital SAT</p></div>
+            <div class="box reg"><div class="num s">3,007</div><p>official SAT questions across 29 modules</p></div>
+            <div class="box reg"><div class="num t">45</div><p>in-house curriculum modules, Pre-Algebra to AP Calc BC</p></div>
+          </div>
+          <div class="box live reg">
+            <div class="label">Live today <span>portal.peerprepacademy.com</span></div>
+            <div class="chips">
+              <span class="chip">4 account types: admin, tutor, student, parent</span>
+              <span class="chip">Assigned practice modules</span>
+              <span class="chip">Scheduling calendar</span>
+              <span class="chip">Session logs</span>
+              <span class="chip">Parent progress views</span>
+              <span class="chip">Finance tracking</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="box road reg">
+            <div class="label">AI roadmap</div>
+            <ol>
+              <li><span class="n">01</span><div><h3>AI diagnostics</h3><p>Pinpoint skill gaps from every problem attempted.</p></div></li>
+              <li><span class="n">02</span><div><h3>Auto-personalized practice</h3><p>Generated practice sets and session plans per student.</p></div></li>
+              <li><span class="n">03</span><div><h3>AI parent reports</h3><p>Weekly progress reports, written automatically.</p></div></li>
+              <li><span class="n">04</span><div><h3>24/7 study assistant</h3><p>Grounded in our own curriculum.</p></div></li>
+            </ol>
+          </div>
+          <div class="thesis reg">
+            <div class="k">THESIS</div>
+            <div class="t1">Humans for accountability + motivation.<br>AI for personalization + busywork.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Peer Prep Academy</span><span>UCSD Basement LaunchPad</span><span>02 / 05</span></div>
+  </div>
+</section>
+
+<!-- ============ 3. MARKET ============ -->
+<section class="slide">
+  <div class="frame reg">
+    <div class="band"><div class="sec"><b>03</b>Market</div><div class="mini"><svg width="26" height="26" style="color:#fff"><use href="#logo"/></svg>PEER PREP ACADEMY</div></div>
+    <div class="body">
+      <h2>A $133.8B market, <em>with AI growing 31% a year.</em></h2>
+      <div class="mkt">
+        <div class="left">
+          <div class="box bigrow reg">
+            <div><div class="label">Private tutoring, global<sup>1</sup></div>
+              <div class="num s">$133.8B<small>&rarr;</small>$248.4B</div></div>
+            <div class="cagr"><div class="label">CAGR</div><div class="num s">7.1%</div></div>
+            <p>2025 to 2034 projection.</p>
+          </div>
+          <div class="box bigrow reg">
+            <div><div class="label">AI in education, global<sup>2</sup></div>
+              <div class="num v">$6.4B<small>&rarr;</small>$79.6B</div></div>
+            <div class="cagr"><div class="label">CAGR</div><div class="num v">31.4%</div></div>
+            <p>2025 to 2034 projection.</p>
+          </div>
+        </div>
+        <div class="right">
+          <div class="mini3">
+            <div class="box reg"><div class="num s">27.6%</div><p>of tutoring spend is North America<sup>1</sup></p></div>
+            <div class="box reg"><div class="num t">~11.8%</div><p>CAGR for online, the fastest-growing segment<sup>1</sup></p></div>
+            <div class="box reg"><div class="num v">2M+</div><p>US class of 2025 students took the SAT<sup>3</sup></p></div>
+          </div>
+          <div class="box beach reg">
+            <div><div class="label">Beachhead</div><div class="step">SF Bay Area</div></div>
+            <div class="arrow"></div>
+            <div><div class="label">Next</div><div class="step">San Diego</div></div>
+          </div>
+          <div class="why reg">
+            <div class="label">Why now</div>
+            <div class="lead">YC wants adaptive learning products</div><q>at the quality of a devoted private tutor and at consumer scale.</q>
+            <p>Y Combinator's Fall 2026 Request for Startups, &ldquo;The Primer&rdquo;<sup>4</sup>. Personalized AI tutoring is a category top investors are actively asking for.</p>
+          </div>
+        </div>
+      </div>
+      <div class="src"><b>Sources</b>[1] IMARC Group, Private Tutoring Market Report, 2025&ndash;2034. &nbsp;[2] IMARC Group, AI in Education Market Report, 2025&ndash;2034. &nbsp;[3] College Board, SAT Suite of Assessments Annual Report, Class of 2025. &nbsp;[4] Y Combinator, Requests for Startups, Fall 2026 (&ldquo;The Primer&rdquo;).</div>
+    </div>
+    <div class="foot"><span>Peer Prep Academy</span><span>UCSD Basement LaunchPad</span><span>03 / 05</span></div>
+  </div>
+</section>
+
+<!-- ============ 4. BUSINESS MODEL ============ -->
+<section class="slide">
+  <div class="frame reg">
+    <div class="band"><div class="sec"><b>04</b>Business Model</div><div class="mini"><svg width="26" height="26" style="color:#fff"><use href="#logo"/></svg>PEER PREP ACADEMY</div></div>
+    <div class="body">
+      <h2>B2C, sold to parents. <em>Costs scale with revenue.</em></h2>
+      <div class="funnel">
+        <div class="box reg"><div class="label">Step 1 &middot; Try</div><div class="num t">$0</div><p>Free first session.</p><div class="step-arrow">&rsaquo;</div></div>
+        <div class="box reg"><div class="label">Step 2 &middot; Hourly</div><div class="num s">$80<small>/hr</small> &nbsp;$110<small>/hr</small></div><p>Online &nbsp;&middot;&nbsp; In person</p><div class="step-arrow">&rsaquo;</div></div>
+        <div class="box hl reg"><div class="label">Step 3 &middot; Package</div><div class="num">150+ pts</div><p>12-session SAT package with a 150+ point improvement guarantee.</p></div>
+      </div>
+      <div class="unit reg"><div class="kicker" style="color:var(--teal)">Unit economics</div><div class="txt">Tutors paid per session <span>&rarr;</span> cost of delivery scales with revenue.</div></div>
+      <div class="bm2">
+        <div class="box reg">
+          <div class="label" style="color:var(--steel)">Low-cost owned acquisition</div>
+          <ul>
+            <li><span class="n s">01</span><span><b>Daily Instagram</b> content engine</span></li>
+            <li><span class="n s">02</span><span><b>Free parent workshops:</b> &ldquo;The Digital SAT, Decoded&rdquo;</span></li>
+            <li><span class="n s">03</span><span><b>AI-scored lead pipeline</b> monitoring online parent communities</span></li>
+          </ul>
+        </div>
+        <div class="box reg">
+          <div class="label" style="color:var(--violet)">Expansion</div>
+          <ul>
+            <li><span class="n v">01</span><span><b>Monthly subscription:</b> AI practice + parent reports between sessions</span></li>
+            <li><span class="n v">02</span><span><b>Campus by campus,</b> with college students as tutors</span></li>
+            <li><span class="n v">03</span><span><b>License the portal</b> to small tutoring businesses + school programs</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Peer Prep Academy</span><span>UCSD Basement LaunchPad</span><span>04 / 05</span></div>
+  </div>
+</section>
+
+<!-- ============ 5. TEAM ============ -->
+<section class="slide">
+  <div class="frame reg">
+    <div class="band"><div class="sec"><b>05</b>Team</div><div class="mini"><svg width="26" height="26" style="color:#fff"><use href="#logo"/></svg>PEER PREP ACADEMY</div></div>
+    <div class="body">
+      <h2>Built by students <em>who just aced the test.</em></h2>
+      <div class="team">
+        <div class="box founder reg">
+          <div class="mono">RC</div>
+          <div>
+            <h3>Ryan Chow</h3>
+            <div class="role">Founder &middot; UCSD, Bioengineering track</div>
+            <div class="creds"><span class="chip">1560 SAT</span><span class="chip">National Merit Finalist</span></div>
+            <ul>
+              <li><b>Built the entire platform</b> + growth stack</li>
+              <li><b>Founded Clapper Labs,</b> a faceless social media network<br>with 200M+ views</li>
+            </ul>
+          </div>
+        </div>
+        <div class="side">
+          <div class="cof">
+            <div class="box reg"><h3>Naveen</h3><div class="role">Co-founder &middot; UC Berkeley</div></div>
+            <div class="box reg"><h3>Keith</h3><div class="role">Co-founder &middot; UCLA</div></div>
+          </div>
+          <div class="box tutors reg"><div class="num t">5</div><p><b>Tutors, all 1500+ SAT.</b><br>Founded April 2026.</p></div>
+        </div>
+      </div>
+      <div class="traction reg">
+        <div>Traction<br>so far</div>
+        <div><div class="h">Launched</div><div class="d">April 2026</div></div>
+        <div><div class="h">Paying families</div><div class="d">in the SF Bay Area</div></div>
+        <div><div class="h">Platform shipped</div><div class="d">portal.peerprepacademy.com</div></div>
+        <div><div class="h">3,007 + 45</div><div class="d">questions + modules live</div></div>
+      </div>
+      <div class="goals reg">
+        <div>Goals by Demo Day<br>(May 2027)</div>
+        <div><div class="when">Dec 2026</div><div class="what">AI diagnostics live</div></div>
+        <div><div class="when">Mar 2027</div><div class="what">San Diego expansion</div></div>
+        <div><div class="when">May 2027</div><div class="what">50 active students + $10K/mo revenue</div></div>
+      </div>
+    </div>
+    <div class="foot"><span>Peer Prep Academy</span><span>UCSD Basement LaunchPad</span><span>05 / 05</span></div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.reg').forEach(el => {
+    ['tl','tr','bl','br'].forEach(c => { const s = document.createElement('i'); s.className = 'plus ' + c; el.appendChild(s); });
+  });
+</script>
+</body>
+</html>
